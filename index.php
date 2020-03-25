@@ -15,7 +15,7 @@
     <div class = "container">
       <div class = "row coffee-mashine">
         <div class = "col-6 coffee-list">
-          <div class = "row flex-column p-3">
+          <div class = "row flex-column p-3 h-100 justify-content-around">
             <div class = "coffee-item col">
               <img src = "img/americano.png" alt = "1">
               <span>Американо - 50 руб.</span>
@@ -46,11 +46,26 @@
                   </div>
                 </div>
               </div>
+              <div class="coffee-cup">
+                  <img src = "img/americano.png" alt = "5">
+              </div>
             </div>
             <div class = "col-6">
-              
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Баланс">
+                <div class="input-group-append">
+                  <span class="input-group-text" id="basic-addon2">&#8381</span>
+                </div>
+              </div>
+              <div class="atm">
+                <img src = "img/bill_acc.png" alt = "6">
+              </div>
+              <button class="btn btn-primary btn-block mt-2">Сдача</button>
+              <div class="change-box"></div>
             </div>
+            
           </div>
+          
           
           
         </div>
