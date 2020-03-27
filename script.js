@@ -7,6 +7,8 @@ let coffeeCup = document.querySelector(".coffee-cup img");
 
 let coffeeStatus = "waiting";
 
+coffeeCup.onclick = takeCoffee;
+
 function buyCoffee(name, cost, elem) {
   if (coffeeStatus != "waiting") {
     return;
@@ -52,4 +54,15 @@ function cookCoffee(name, elem) {
 
 function changeDisplayText(text) {
   displayText.innerHTML = "<span>"+text+"</span>";
+}
+
+function takeCoffee() {
+  if (coffeeStatus != "ready") {
+    return;
+  }
+  coffeeStatus = "waiting";
+  coffeeCup.classList.add("d-none");
+  coffeeCup.style.cursor = 'auto';
+  progressBar.style.width = "0%";
+  changeDisplayText('Выберите кофе');
 }
