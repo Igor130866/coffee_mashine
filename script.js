@@ -157,8 +157,38 @@ let changeBtn = document.querySelector(".change");
 changeBtn.onclick = takeChange;
 
 function takeChange() {
-  //alert("Сдача");
-  tossCoin("10");
+  if (balance.value <= 0) {
+    changeBtn.onclick = takeChange;
+      return;
+  } 
+  
+  changeBtn.onclick = null;
+  if (balance.value - 10 >= 0) {
+     setTimeout(() => {
+     tossCoin("10");
+     balance.value -= 10;
+    return takeChange();
+    },300);
+   
+  } else if (balance.value - 5 >= 0) {
+     setTimeout(() => {
+     tossCoin("5");
+     balance.value -= 5;
+    return takeChange();
+     },300);
+  } else if (balance.value - 2 >= 0) {
+     setTimeout(() => {
+     tossCoin("2");
+     balance.value -= 2;
+    return takeChange();
+     },300);
+  } else if (balance.value - 1 >= 0) {
+     setTimeout(() => {
+     tossCoin("1");
+     balance.value -= 1;
+    return takeChange();
+     },300);
+  }
 }
 
 function tossCoin(cost) {
@@ -191,12 +221,17 @@ function tossCoin(cost) {
   coin.style.cursor = "pointer";
   coin.style.display = "inline-block";
   coin.style.position = "absolute";
+  coin.style.userSelect = "none";
+  
   
   changeContainer.append(coin);
   coin.style.top = 3 + Math.round(Math.random() * (changeContainerCoords.height - 53)) + "px";
   coin.style.left = 3 + Math.round(Math.random() * (changeContainerCoords.width - 53)) + "px";
   
   coin.onclick = () => coin.remove();
+  
+  let coinSound = new Audio("sound/coindrop.mp3");
+    coinSound.play();
 }
   
   
